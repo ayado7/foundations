@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <link 
+  rel="stylesheet"
+  type="text/css"
+  href= "static/styles.css"/>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" conent="width=device-width">
+  <title>Sign In</title>
+</head>
+  <body>
+
+        <form action="sign-in" >
+        <div class="container">
+            <label for="email"><b>Email Address</b></label> 
+            <input type="text" id="email" placeholder="Try using your secondary Email" name="email" required>
+            
+            <label for="password"><b>Password</b></label>
+            <input type="password" id= "password" placeholder="Enter a password" name="password" required>
+       
+            <button type="button" id="sign-in" onclick="authenticate()">Sign In</button>
+            <button type="button" class="cancel">Cancel</button>                  
+
+        </div>
+        </form>
+        <script type="text/javascript" src = "static\js\logic.js"></script>
+        <script type="text/javascript" src = "static\js\var.js"></script> 
+        </body>
+        </html>

@@ -1,0 +1,281 @@
+
+/* colors Template
+Pink FDC9C9
+blue C9EFCB
+purple DBC9E9
+orange FFE7C9
+green C9F4FB
+yellow FFFAC9 */
+
+h1 {
+  color: red;
+  font: 100;
+  font-family: monospace;
+}
+body {
+  color: rgb(0, 0, 0);
+  font: 80;
+  font-family: monospace;
+  padding: 0px;
+  margin: 0px;
+}
+header {
+    background-color: #DBC9E9;
+    padding: 5px;
+    width: 100%;
+    height: 50px
+}
+section {
+    position: relative;
+    background-color: white;
+    margin: 20px;
+    flex-direction: row;
+    display: flex;
+    flex-direction: row;
+}
+
+.textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 12px 20px;
+  text-overflow: initial;
+  box-sizing: border-box;
+  border: 2px solid #DBC9E9;
+  border-radius: 2px;
+  background-color: #f8f8f8;
+  resize: none;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.submit {
+  width: 100px;
+  height: 30px;
+  margin-top: 3px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #DBC9E9;
+  color: black;
+  font-weight: bold;
+  resize: none;
+}
+
+div {
+  background-color: pink;
+  align-items: center;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.comment-area {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 12px 20px;
+  text-overflow: initial;
+  box-sizing: border-box;
+  border: 2px solid #DBC9E9;
+  border-radius: 2px;
+  background-color: #f8f8f8;
+  resize: none;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.Comment{
+  width: 100px;
+  height: 30px;
+  margin-top: 3px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #FFFAC9;
+  color: black;
+  font-weight: bold;
+  resize: none;
+  float: left;
+}
+
+div.post {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  display: inline-block;
+  margin: auto;
+}
+/*div.test {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  display: inline-block;
+  margin: auto;
+} */
+.story {
+  width: 200px;
+  height:160px;
+  background-color: #C9EFCB;
+  text-align: center;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+
+.share {
+  float: right;
+  background-color: #FDC9C9;
+  width: 50px;
+  padding: 3px;
+  text-align-last: center;
+}
+
+.like {
+  float: left;
+  background-color:#FFFAC9;
+  width: 50px;
+  padding: 3px;
+  text-align-last: center;
+}
+
+.comment {
+  float: center;
+  background-color: #DBC9E9;
+  align-content: center;
+  width: 50px;
+  padding: 3px;
+  text-align-last: center;
+}
+
+.post-page {
+  margin: 10%;
+  height: auto;
+  text-align: center;
+  margin-top: 20px;
+  align-self: center;
+  align-content: center;
+}
+#right-pp {
+  float: right;
+  background-color: #FDC9C9;
+  width: auto;
+  padding: 3px;
+  text-align-last: center;
+}
+
+#left-pp {
+  float: left;
+  background-color:#FFFAC9;
+  width: 50px;
+  padding: 3px;
+  text-align-last: center;
+}
+
+#center-pp {
+  float: center;
+  background-color: #DBC9E9;
+  align-content: center;
+  width: auto;
+  padding: 3px;
+  text-align-last: center;
+}
+
+div.story {
+    background-color: rgb(174, 224, 222);
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    text-align: center;
+    word-wrap: break-word;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+ul {
+  margin: auto;
+  list-style-type: none;
+  text-decoration: none;
+  display: table ;
+  width: 100%;
+  text-align: center;
+}
+button {
+  background-color: white;
+  color: black;
+  cursor: pointer;}
+
+p.text {
+  position: sticky;
+  width: 500px;
+  height: 50px;
+  align-self: center;
+  background-color: lightseagreen;
+}
+p.submit {
+  position: sticky;
+  width: 200px;
+  height: 50px;
+  align-self: center;
+  background-color: rgb(255, 0, 0);
+}
+
+div.container {
+  color: rgb(215, 239, 250);
+  width: 500px;
+  place-self: center;
+  height: auto;
+  flex-direction: column;
+  display: flex;
+  margin: auto;
+  background-color: blueviolet;
+}
+
+li:hover{
+  text-decoration: underline;
+  background-color:#C9EFCB;
+}
+
+li {
+  padding: 5px;
+  margin: 5px;
+  margin-left: 10px;
+  display: inline-block;
+
+}
+aside {
+  display: flexbox;
+  flex-direction: column;
+  float: right;
+  text-align: center;
+  width: 200px;
+}
+
+ul.settings {
+  display: flexbox;
+  flex-direction: column;
+}
+
+.profile {
+  height: 50px;
+  width: 50px;
+  align-content: center;
+  float: center;
+}
+dialog {
+  z-index: 1;
+  box-sizing: border-box;
+  border: 2px solid #DBC9E9;
+  border-radius: 2px;
+  background-color: #f8f8f8;
+  text-align: center;
+  }

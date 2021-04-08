@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <link 
+  rel="stylesheet"
+  type="text/css"
+  href= "static/styles.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" conent="width=device-width">
+  <title>Did Not Ask</title>
+</head>
+  <body onload= "loadMain()">
+
+    <header>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>Support & Donate</li>
+        <li>About Us</li>
+        <li>FAQ</li>
+        <li><a href= "/profile">Profile</a> </li>
+        <li><a href = "/sign-in"> Sign-in</a></li>
+        <li><a href = "/sign-up"> Sign-up</a></li>
+      </ul>
+    </nav>
+    </header>
+
+    <div class= "inputField" class="inputField">
+      <input id="story-content" class="textarea" type="text" name="Story" placeholder="Submit your story">
+      <button  type="submit" class="submit submit_button" onclick="newPost()" value="submit" >Submit</button> 
+    <!--  <dialog class="invisible" open class="invisible">
+        <p method="dialog">
+          Thank you!
+         <br>Please allow our moderators a moment to check and approve your post.
+         </p>
+          
+             <button href="index.html"> Home </button> 
+     
+      </dialog>
+    -->
+    </div>
+
+
+<section id="posts" class="postBox">
+
+</section>
+
+<script type="text/javascript" src = "static\js\logic.js"></script>
+<script type="text/javascript" src = "static\js\var.js"></script> 
+</body>
+</html>

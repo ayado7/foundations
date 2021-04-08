@@ -1,0 +1,68 @@
+In a nutshell:
+
+Main page - guest: 
+- Load main page
+- Show sign-up/log-in button
+- click on submit, like, show sign-up/log-in dialoge
+
+Sign-up:
+- Opens dialoge
+- If check boxes unchecked -> show error
+- When check boxes checked -> Sign up button clicked: Load main page
+
+Sign-in:
+- If user name & passwrod match the database -> Load main page
+- If there was no match -> show error
+
+Main page - logged-in: 
+- Load main page
+- Show profile button
+- Submit button -> pushes input to database + opens moderation dialoge
+- Click on post -> opens post page
+- click on like button -> +1 to like counter
+- Click on comment button -> opens input dialoge
+- Click on share button -> opens share dialoge (share dialoge has link)
+
+Profile page:
+- Loads all posts with the same user ID
+- Click on Delete button -> removes post from server
+- Click on Edit profile -> allows changes to the database (username & password)
+
+Post page:
+- Load post by ID
+- Load post properties (???)
+
+
+
+Functions:
+- Load main page
+- Show sign-up dialoge
+- Authenticate information 
+- Save input in Database
+
+Sign-up process:
+- Get input
+- If EmailID is within the DB -> error (your email exists, try sign-in)
+- If PassID is >8 length -> error (password is too short)
+- If submit is successful -> create userID, add to Database
+
+Sign-in process:
+- Get input
+- Loop overdatabase to Authenticate
+- If username (or) password don't match any UserID -> Error, try again
+- If username + password belong to the same UserID -> Log-in successful -> go to home page, view as UserID
+
+Load all posts:
+- Get post from Database by postID
+- Place post within Div (???)
+- 
+
+New post process:
+- Show dialoge if "submit" button is pressed & text length > 0
+- Save input into Database with UserID & assign postID to it, create Time stamp
+- Place post within Div 
+- Create new post page (???)
+(Could we ignore the post page and create a post dialoge instead? / If we were to ignore comments, we won't need a post page anymore)
+
+Additional functions:
+- +1 when user presses like button (only works once)
