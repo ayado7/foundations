@@ -80,12 +80,10 @@ def api_all_posts():
     for database_post in database_posts:
         posts.append(database_post)
     
-
-    
     return jsonify(posts)
 
 
-@app.route ('/api/posts', methods=['POST'])
+@app.route('/api/post/create', methods=['POST'])
 def create_post():
     if 'authenticated_user' not in request.cookies:
         response = make_response ("Not authenticated", 401)
@@ -100,9 +98,6 @@ def create_post():
         app.logger.debug("data is", userStory)
         response = jsonify(newPost=newPost[0])
         return response 
-
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)

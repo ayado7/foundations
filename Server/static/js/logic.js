@@ -108,7 +108,7 @@ function newPost() {
    if (payLoad != 0) {
       let xhr = new XMLHttpRequest();
       xhr.responseType = "json";
-      xhr.open("POST", "http://127.0.0.1:5000/api/posts");
+      xhr.open("POST", "http://127.0.0.1:5000/api/post/create");
       // define what to do when the response comes back
       xhr.onerror = function (error) {
          console.log("ERROR! ", error)
