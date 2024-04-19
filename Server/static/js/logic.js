@@ -142,9 +142,6 @@ function createNewPost (postId, input) {
    var story = document.createElement("div");
    story.classList.add ("story");
    story.textContent = input;
-   var share = document.createElement("div");
-   share.classList.add ("share");
-   share.textContent = "share";
    var like = document.createElement("div");
    like.classList.add ("like");
    like.textContent = "like";
@@ -153,7 +150,6 @@ function createNewPost (postId, input) {
    comment.textContent = "comment";
    comment.href = `/post/${postId}`;
    post.appendChild(story);
-   post.appendChild(share);
    post.appendChild(like);
    post.appendChild(comment);
    return post;

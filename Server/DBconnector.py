@@ -8,7 +8,7 @@ from datetime import datetime
 
 # setup DB connection
 def create_connection():
-    try:
+    try: 
         return psycopg2.connect(
             dbname="postgres",
             user="postgres.bqkalputmhzdcauhpzza",
