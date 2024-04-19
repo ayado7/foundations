@@ -12,31 +12,31 @@ CORS(app, resources={r"/api/*": {"origins": "http://34.107.19.83/"}})
 def main():
     if 'authenticated_user' not in request.cookies:
         return redirect("/sign-in", code=302)
-    return send_file("static\html\index.html",conditional=True)
+    return send_file("static/html/index.html",conditional=True)
 
 @app.route('/sign-up')
 def signUp():
-    return send_file("static\html\sign-up.html")
+    return send_file("static/html/sign-up.html")
 
 @app.route('/sign-in')
 def signIn():
-    return send_file("static\html\sign-in.html")
+    return send_file("static/html/sign-in.html")
 
 #@app.route('/index')
 #def index():
-    #return send_file("static\html\index.html")
+    #return send_file("static/html/index.html")
 
 @app.route('/profile')
 def profile():
     if 'authenticated_user' not in request.cookies:
         return redirect("/sign-in", code=302)
-    return send_file("static\html\profile.html")
+    return send_file("static/html/profile.html")
 
 @app.route('/post/<postId>')
 def post(postId):
     if 'authenticated_user' not in request.cookies:
         return redirect("/sign-in", code=302)
-    return send_file("static\html\post.html")
+    return send_file("static/html/post.html")
 
 @app.route('/api/signup', methods= ['POST'])
 def signup(): 
