@@ -85,12 +85,12 @@ def api_all_posts():
 
 @app.route('/api/post/create', methods=['POST'])
 def create_post():
+    # If Else statements here instead of client
     if 'authenticated_user' not in request.cookies:
         response = make_response ("Not authenticated", 401)
         return response
     else:
         userId = request.cookies.get('authenticated_user')
-        # If Else statements here instead of client
         app.logger.debug("request is:", request, "data is", request.form.to_dict())
         arg = str (request.data)
         userStory = arg[2:-1]

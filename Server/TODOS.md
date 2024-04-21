@@ -11,3 +11,14 @@ Submit:
 - Essay
 - Documentation
 - Prepare for Oral exam
+
+Features:
+- Profile page should include user name & posts belonging to the person
+- Remove menu items that don't lead anywhere
+- Add a sign out button
+- Make conditions required (Sign up)
+- Fix dignup - sign in redirection
+- Fix post database feild - Post content instead of post ID
+- Add edit & delete function to posts
+- Create Like counter
+- Fix and finish comment function -> comments render in page
