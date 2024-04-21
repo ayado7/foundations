@@ -13,12 +13,14 @@ Submit:
 - Prepare for Oral exam
 
 Features:
+( - indicates to do, x indicates done, + indicates work in progress)
 - Profile page should include user name & posts belonging to the person
-- Remove menu items that don't lead anywhere
+x Remove menu items that don't lead anywhere
 - Add a sign out button
-- Make conditions required (Sign up)
-- Fix dignup - sign in redirection
+- On load all old posts should show and the example one should be removed
++ Make conditions required (Sign up)
+x Fix dignup - sign in redirection
 - Fix post database feild - Post content instead of post ID
 - Add edit & delete function to posts
-- Create Like counter
++ Create Like counter
 - Fix and finish comment function -> comments render in page

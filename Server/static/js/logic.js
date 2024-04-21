@@ -3,6 +3,8 @@ function register(){
    //Get user input from the HTML form
    var userName = document.getElementById("email").value;
    var password = document.getElementById ("password").value;
+   var checkbox1 = document.getElementById ("tnc");
+   var checkbox2 = document.getElementById ("ua");
    // More conditions should be applied as password length and valid email ID (at a later stage)
    if (userName && password != 0)
    {
@@ -22,8 +24,16 @@ function register(){
       console.log ("userName="+userName+"&password="+password);
       // Allow user in!  
    
-   }
-}
+      };
+         if (checkbox1.checked && checkbox2.checked) 
+         console.log ("Terms and conditions and user agreement are accepted, proceeding with login") {
+
+      } 
+         else { alert ("please accept both conditions to proceed")
+   
+
+   };
+
 
 
 
@@ -154,6 +164,20 @@ function createNewPost (postId, input) {
    post.appendChild(comment);
    return post;
 }
+
+//This function should handle the like button click event, it should toggle between like and unlike count according to the number of clicks
+function LikeToggle(likeButton){
+   var likeCounter = likeButton.textContent;
+   var currentCount = parseInt(likeCounter.textContent);
+   //for unliking remove one
+   if (likeButton.contains ('liked'));
+   likeCounter.textContent = currentCount -1; 
+   //for liking add one
+   else likeButton.classList.add ('liked');
+   likeCounter.textContent = currentCount +1; 
+
+}
+
 
 //This function renders a new post on the HTML when the user submits a story
 function renderNewPost(payload){
