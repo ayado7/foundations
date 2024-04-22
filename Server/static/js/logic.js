@@ -3,8 +3,6 @@ function register(){
    //Get user input from the HTML form
    var userName = document.getElementById("email").value;
    var password = document.getElementById ("password").value;
-   var checkbox1 = document.getElementById ("tnc");
-   var checkbox2 = document.getElementById ("ua");
    // More conditions should be applied as password length and valid email ID (at a later stage)
    if (userName && password != 0)
    {
@@ -23,18 +21,8 @@ function register(){
       xhr.send("userName="+userName+"&password="+password);
       console.log ("userName="+userName+"&password="+password);
       // Allow user in!  
-   
-      };
-         if (checkbox1.checked && checkbox2.checked) 
-         console.log ("Terms and conditions and user agreement are accepted, proceeding with login") {
-
-      } 
-         else { alert ("please accept both conditions to proceed")
-   
-
-   };
-
-
+   }
+}
 
 
 //This function takes inputs from user and checks them against the DB information, if there is a match the user is allowed in, if not, the user can try again.
@@ -104,7 +92,7 @@ function loadMain () {
       // Response will contain the data to render
       if (xhr.response === null) return;
       for (const story of xhr.response.reverse()) {
-         var [storyText, postId, userId] = story;
+         var [postId, userId, storyText] = story;
          renderNewPost({ input: storyText, postId });
       }
    }
@@ -166,7 +154,7 @@ function createNewPost (postId, input) {
 }
 
 //This function should handle the like button click event, it should toggle between like and unlike count according to the number of clicks
-function LikeToggle(likeButton){
+/*function LikeToggle(likeButton){
    var likeCounter = likeButton.textContent;
    var currentCount = parseInt(likeCounter.textContent);
    //for unliking remove one
@@ -176,7 +164,7 @@ function LikeToggle(likeButton){
    else likeButton.classList.add ('liked');
    likeCounter.textContent = currentCount +1; 
 
-}
+}*/
 
 
 //This function renders a new post on the HTML when the user submits a story

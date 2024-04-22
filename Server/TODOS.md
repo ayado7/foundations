@@ -20,7 +20,7 @@ x Remove menu items that don't lead anywhere
 - On load all old posts should show and the example one should be removed
 + Make conditions required (Sign up)
 x Fix dignup - sign in redirection
-- Fix post database feild - Post content instead of post ID
+x Fix post database feild - Post content instead of post ID
 - Add edit & delete function to posts
 + Create Like counter
 - Fix and finish comment function -> comments render in page
