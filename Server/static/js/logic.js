@@ -99,6 +99,63 @@ function loadMain () {
    xhr.send();
 }
 
+//This function loads the content of one story
+function loadStory() {
+   // get post from database with postId
+   let url = window.location.href.split("/")
+   let post_id = url[url.length - 1]
+   console.log(post_id)
+   let xhr = new XMLHttpRequest();
+   xhr.responseType = "json";
+   xhr.open("GET", "http://127.0.0.1:5000/api/post/" + post_id);
+   // define what to do when the response comes back
+   xhr.onerror = function (error) {
+      console.log("ERROR! ", error)
+   }
+   xhr.onload = function () {
+      // Response will contain the data to render
+      if (xhr.response === null) return;
+      console.log("THIS IS RESPONSE", xhr.response)
+
+      let postText = xhr.response[0][2]
+      document.getElementById('story-content').innerHTML = postText
+   }
+   xhr.send();
+   loadComments()
+}
+
+//This function loads the comments of a post
+function loadComments() {
+   // get post from database with postId
+   let url = window.location.href.split("/")
+   let post_id = url[url.length - 1]
+   console.log(post_id)
+   let xhr = new XMLHttpRequest();
+   xhr.responseType = "json";
+   xhr.open("GET", "http://127.0.0.1:5000/api/comments/" + post_id);
+   // define what to do when the response comes back
+   xhr.onerror = function (error) {
+      console.log("ERROR! ", error)
+   }
+   xhr.onload = function () {
+
+      document.getElementById('post-comments').innerHTML = ''
+
+      // Response will contain the data to render
+      if (xhr.response === null) return;
+      let comments = xhr.response
+
+      for (let i = 0; i < comments.length; i++) {
+         var comment = document.createElement("div");
+         comment.classList.add("comment-box");
+         comment.innerHTML = comments[i][3];
+         document.getElementById('post-comments').appendChild(comment)
+      }
+
+   }
+   xhr.send();
+}
+
 //Get input from User
 function newPost() {
    // get data from UI
@@ -114,12 +171,35 @@ function newPost() {
       xhr.onload = function () {
          // Response will contain the data to render
          if (xhr.response === null) return;
-         var [input, postId, userId] = xhr.response.newPost;
+         var [postId, userId, input] = xhr.response.newPost;
          renderNewPost({ input, postId });
          console.log("Saved!")
       }
       xhr.send(payLoad);
       console.log ("story="+payLoad);
+   }
+}
+
+//copy change new
+function newComment() {
+   var payLoad = document.getElementById("comment-content").value;
+   let url = window.location.href.split("/")
+   let post_id = url[url.length - 1]
+   if (payLoad != 0) {
+      let xhr = new XMLHttpRequest();
+      xhr.responseType = "json";
+      xhr.open("POST", "http://127.0.0.1:5000/api/comments/create/" + post_id);
+      // define what to do when the response comes back
+      xhr.onerror = function (error) {
+         console.log("ERROR! ", error)
+      }
+      xhr.onload = function () {
+         // Response will contain the data to render
+         if (xhr.response === null) return;
+         loadComments()
+      }
+      xhr.send(payLoad);
+      console.log("story=" + payLoad);
    }
 }
 

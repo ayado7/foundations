@@ -76,4 +76,38 @@ def get_all_user_posts(userId):
     db_connection.close()
     return result
 
+# post page: get post text from post id
+def get_post_id(postId):
+    db_connection = create_connection()
+    db_cursor = db_connection.cursor()
+    query = sql.SQL('SELECT * from posts WHERE postId = %s')
+    db_cursor.execute(query, (postId,))
+    result = db_cursor.fetchall()
+    db_connection.close()
+    return result
 
+# add new comment to post
+def newComment(commentContent, postId, userId):
+    db_connection = create_connection()
+    db_cursor = db_connection.cursor()
+    # We need to generate a random number ((find a way for a serial number)) for each post so we can call it back, while we get the username and Id from the active cookie session
+    commentId = randint(0,1000000000)
+    createdAt = datetime.now()
+    query = sql.SQL('INSERT INTO comments (commentinput, postid, userid, commentid, createdat) VALUES (%s, %s, %s, %s, %s)')
+    db_cursor.execute(query, (commentContent, postId, userId, commentId, createdAt))
+    db_connection.commit()
+    
+    query = sql.SQL('SELECT * from comments WHERE commentid = %s')
+    db_cursor.execute(query, ( commentId, ))
+    newComment = db_cursor.fetchall()
+    db_connection.close()
+    return newComment
+
+def get_comments(postId):
+    db_connection = create_connection()
+    db_cursor = db_connection.cursor()
+    query = sql.SQL('SELECT * from comments WHERE postId = %s')
+    db_cursor.execute(query, (postId,))
+    result = db_cursor.fetchall()
+    db_connection.close()
+    return result

@@ -11,7 +11,7 @@
   <meta name="viewport" conent="width=device-width">
   <title>Post</title>
 </head>
-  <body>
+  <body onload="loadStory()">
     <header>
       <nav>
         <ul>
@@ -26,12 +26,17 @@
 
   <section id= "postBox">
     <div class= "post">
-      <div class="story"> Ideally, your post contents would be placed here :) </div>
       
-      <input class="comment-area" type="text" name="comment" placeholder="Write a comment">
-      <button class="comment" type="text">Submit</button> 
+      <div id="story-content" class="story">  </div>
+      
+      <div id="post-comments" onload="loadComments()">
+      </div>
+      
+      <input id="comment-content" class="comment-area" type="text" name="comment" placeholder="Write a comment">
+      <button class="comment" type="button" onclick="newComment()">Submit</button> 
       <div class="post" onclick="ToggleEvent">Like</div> 
-      
+
+
     </div>
   </section>
 

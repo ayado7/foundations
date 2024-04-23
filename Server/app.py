@@ -99,5 +99,27 @@ def create_post():
         response = jsonify(newPost=newPost[0])
         return response 
 
+@app.route('/api/comments/create/<postId>', methods=['POST'])
+def create_comment(postId):
+    # If Else statements here instead of client
+    if 'authenticated_user' not in request.cookies:
+        response = make_response ("Not authenticated", 401)
+        return response
+    else:
+        userId = request.cookies.get('authenticated_user')
+        app.logger.debug("request is:", request, "data is", request.form.to_dict())
+        arg = str (request.data)
+        commentInput = arg[2:-1]
+        newComment = DBconnector.newComment (commentInput, postId, userId)
+        return newComment
+
+
+@app.route('/api/comments/<postId>')
+def get_post_comments(postId):
+    if 'authenticated_user' not in request.cookies:
+        return redirect("/sign-in", code=302)
+    post_comments = DBconnector.get_comments(postId)
+    return jsonify(post_comments)
+
 if __name__ == "__main__":
     app.run(debug=True)
