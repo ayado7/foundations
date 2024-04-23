@@ -50,7 +50,6 @@ def newPost(storyContent, userId):
     query = sql.SQL('INSERT INTO posts (input, userId, postId, createdAt) VALUES (%s, %s, %s, %s)')
     db_cursor.execute(query, (storyContent, userId, postId, createdAt))
     db_connection.commit()
-    
     query = sql.SQL('SELECT * from posts WHERE postId = %s')
     db_cursor.execute(query, (postId,))
     newPost = db_cursor.fetchall()
@@ -66,6 +65,17 @@ def get_all_posts():
     db_connection.close()
     return result
 
+# post page: get post text from post id
+def get_post_id(postId):
+    db_connection = create_connection()
+    db_cursor = db_connection.cursor()
+    query = sql.SQL('SELECT * from posts WHERE postId = %s')
+    db_cursor.execute(query, (postId,))
+    result = db_cursor.fetchall()
+    db_connection.close()
+    return result
+
+
 # Profile page: Get all posts from one user
 def get_all_user_posts(userId):
     db_connection = create_connection()
@@ -76,15 +86,6 @@ def get_all_user_posts(userId):
     db_connection.close()
     return result
 
-# post page: get post text from post id
-def get_post_id(postId):
-    db_connection = create_connection()
-    db_cursor = db_connection.cursor()
-    query = sql.SQL('SELECT * from posts WHERE postId = %s')
-    db_cursor.execute(query, (postId,))
-    result = db_cursor.fetchall()
-    db_connection.close()
-    return result
 
 # add new comment to post
 def newComment(commentContent, postId, userId):
@@ -108,6 +109,15 @@ def get_comments(postId):
     db_cursor = db_connection.cursor()
     query = sql.SQL('SELECT * from comments WHERE postId = %s')
     db_cursor.execute(query, (postId,))
+    result = db_cursor.fetchall()
+    db_connection.close()
+    return result
+
+def get_profile(userId):
+    db_connection = create_connection()
+    db_cursor = db_connection.cursor()
+    query = sql.SQL('SELECT * from posts WHERE userId = %s')
+    db_cursor.execute(query, (userId))
     result = db_cursor.fetchall()
     db_connection.close()
     return result

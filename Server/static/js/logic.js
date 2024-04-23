@@ -156,6 +156,29 @@ function loadComments() {
    xhr.send();
 }
 
+//This function loads the comments of a post
+function loadProfile() {
+   let xhr = new XMLHttpRequest();
+   xhr.responseType = "json";
+   xhr.open("GET", "http://127.0.0.1:5000/api/profile");
+   // define what to do when the response comes back
+   xhr.onerror = function (error) {
+      console.log("ERROR! ", error)
+   }
+   xhr.onload = function () {
+      // Response will contain the data to render
+      if (xhr.response === null) return;
+      console.log("THIS IS PROFILE RESPONSE", xhr.response)
+
+      for (const story of xhr.response) {
+         var [postId, userId, storyText] = story;
+         renderNewPost({ input: storyText, postId });
+      }
+   }
+   xhr.send();
+}
+
+
 //Get input from User
 function newPost() {
    // get data from UI

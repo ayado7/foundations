@@ -82,6 +82,13 @@ def api_all_posts():
     
     return jsonify(posts)
 
+@app.route('/api/post/<postId>')
+def post_content(postId):
+    if 'authenticated_user' not in request.cookies:
+        return redirect("/sign-in", code=302)
+    post_text = DBconnector.get_post_id(postId)
+    return jsonify(post_text)
+
 
 @app.route('/api/post/create', methods=['POST'])
 def create_post():
@@ -113,13 +120,22 @@ def create_comment(postId):
         newComment = DBconnector.newComment (commentInput, postId, userId)
         return newComment
 
-
 @app.route('/api/comments/<postId>')
 def get_post_comments(postId):
     if 'authenticated_user' not in request.cookies:
         return redirect("/sign-in", code=302)
     post_comments = DBconnector.get_comments(postId)
     return jsonify(post_comments)
+
+
+@app.route('/api/profile')
+def get_profile():
+    if 'authenticated_user' not in request.cookies:
+        return redirect("/sign-in", code=302)
+    else:
+        userId = request.cookies.get('authenticated_user')
+        profile_posts = DBconnector.get_profile(userId)
+        return jsonify(profile_posts)
 
 if __name__ == "__main__":
     app.run(debug=True)
