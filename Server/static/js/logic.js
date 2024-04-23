@@ -1,11 +1,17 @@
 //This function takes inputs from the user and stores them in the database then allows the user in.
-function register(){
+function register()
+{
    //Get user input from the HTML form
    var userName = document.getElementById("email").value;
    var password = document.getElementById ("password").value;
+   var checkbox = document.getElementById ("tnc");
    // More conditions should be applied as password length and valid email ID (at a later stage)
    if (userName && password != 0)
-   {
+   {if (!checkbox.checked) {
+      event.preventDefault(); 
+      alert("Please agree to the terms and conditions before signing up");
+      } else 
+            {
    //Put it in the Database
       let xhr = new XMLHttpRequest();
       xhr.responseType = "json";
@@ -14,16 +20,16 @@ function register(){
       xhr.onload = function () {
       // redirect user to the main page
       window.location.href = "/"
-         console.log ("response! " + xhr.response)
-      }
-      console.log ("It's getting sent!")
+         console.log ("response! " + xhr.response);
+      };
+      console.log ("It's getting sent!");
       //send the request, and when it comes back, run the code above.
       xhr.send("userName="+userName+"&password="+password);
-      console.log ("userName="+userName+"&password="+password);
+      console.log ("userName="+userName+"&password="+password);}
       // Allow user in!  
+
    }
 }
-
 
 //This function takes inputs from user and checks them against the DB information, if there is a match the user is allowed in, if not, the user can try again.
 function authenticate() 

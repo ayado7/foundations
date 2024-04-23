@@ -26,15 +26,15 @@
 
   <section id= "postBox">
     <div class= "post">
+            <div id="story-content" class="story">  </div>
       
-      <div id="story-content" class="story">  </div>
-      
-      <div id="post-comments" onload="loadComments()">
-      </div>
-      
+      <section id="post-comments" class="postBox" onload="loadComments()">
+        
+      </section>
+
       <input id="comment-content" class="comment-area" type="text" name="comment" placeholder="Write a comment">
       <button class="comment" type="button" onclick="newComment()">Submit</button> 
-      <div class="post" onclick="ToggleEvent">Like</div> 
+      
 
 
     </div>

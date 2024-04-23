@@ -17,16 +17,20 @@ Features:
 Done:
 x Remove menu items that don't lead anywhere
 - On load all old posts should show and the example one should be removed
-
+- Profile page should include user name & posts belonging to the person
 x Fix signup - sign in redirection
 x Fix post database feild - Post content instead of post ID
+- Fix and finish comment function -> comments render in page
++ Make conditions required (Sign up)
+
 
 Next:
+- Fix CSS (started)
 - Add edit & delete function to posts
 - Add a sign out button
-- Profile page should include user name & posts belonging to the person
-+ Make conditions required (Sign up)
-- Fix and finish comment function -> comments render in page
+
+
+- 
 
 If I have time:
 + Create Like counter
