@@ -2,6 +2,7 @@
 from flask import Flask, jsonify, send_file, redirect, request, make_response
 from flask_login import current_user, login_user
 from flask_cors import CORS 
+from app import app
 
 app = Flask (__name__)
 import DBconnector
