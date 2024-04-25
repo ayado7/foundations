@@ -6,8 +6,7 @@ from flask_cors import CORS
 app = Flask (__name__)
 import DBconnector
 
-
-CORS(app, resources={r"/api/*": {"origins": ["http://34.107.19.83/" "http://3.75.158.163" , "http://3.125.183.140" , "http://35.157.117.28" ]}})
+CORS(app, resources={r"/api/*": {"origins": "http://34.107.19.83/"}})
 
 @app.route('/')
 def main():
@@ -157,4 +156,4 @@ def get_profile():
         return jsonify(profile_posts)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='127.0.0.1',port=5000)
