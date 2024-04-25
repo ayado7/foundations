@@ -56,6 +56,17 @@ def newPost(storyContent, userId):
     db_connection.close()
     return newPost
 
+def deletePost(postId):
+    db_connection = create_connection()
+    db_cursor = db_connection.cursor()
+    query = sql.SQL('DELETE FROM comments WHERE postId = %s')
+    db_cursor.execute(query, (postId,))
+    query = sql.SQL('DELETE FROM posts WHERE postId = %s')
+    db_cursor.execute(query, (postId,))
+    db_connection.commit()
+    db_connection.close()
+    return True
+
 # main page: Get all posts
 def get_all_posts():
     db_connection = create_connection()

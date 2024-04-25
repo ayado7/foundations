@@ -22,15 +22,13 @@ x Fix signup - sign in redirection
 x Fix post database feild - Post content instead of post ID
 - Fix and finish comment function -> comments render in page
 + Make conditions required (Sign up)
+- Add delete function to posts
 
 
 Next:
 - Fix CSS (started)
-- Add edit & delete function to posts
 - Add a sign out button
-
-
-- 
 
 If I have time:
 + Create Like counter
+- Add edit function to posts

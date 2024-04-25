@@ -209,6 +209,25 @@ function newPost() {
    }
 }
 
+function deletePost() {
+   let url = window.location.href.split("/")
+   let post_id = url[url.length - 1]
+   let xhr = new XMLHttpRequest();
+   xhr.responseType = "json";
+   xhr.open("DELETE", "http://127.0.0.1:5000/api/post/delete/" + post_id);
+   // define what to do when the response comes back
+   xhr.onerror = function (error) {
+      console.log("ERROR! ", error)
+   }
+   xhr.onload = function () {
+      // Response will contain the data to render
+      if (xhr.response === null) return;
+      loadComments()
+   }
+   xhr.send();
+}
+
+
 //copy change new
 function newComment() {
    var payLoad = document.getElementById("comment-content").value;

@@ -2,7 +2,6 @@
 from flask import Flask, jsonify, send_file, redirect, request, make_response
 from flask_login import current_user, login_user
 from flask_cors import CORS 
-from app import app
 
 app = Flask (__name__)
 import DBconnector
@@ -106,6 +105,17 @@ def create_post():
         app.logger.debug("data is", userStory)
         response = jsonify(newPost=newPost[0])
         return response 
+
+@app.route('/api/post/delete/<postId>', methods=['DELETE'])
+def delete_post(postId):
+    if 'authenticated_user' not in request.cookies:
+        response = make_response ("Not authenticated", 401)
+        return response
+    else:
+        app.logger.debug("request is:", request, "data is", request.form.to_dict(), "post ID is", postId)
+        app.logger.debug(postId)
+        DBconnector.deletePost(postId)
+        return redirect("/profile", code=200)
 
 @app.route('/api/comments/create/<postId>', methods=['POST'])
 def create_comment(postId):

@@ -56,7 +56,7 @@ section {
   height: 30px;
   margin-top: 3px;
   box-sizing: border-box;
-  border: 2px solid #ccc;
+  border: 2px solid #c18de8;
   border-radius: 8px;
   background-color: #DBC9E9;
   color: black;
@@ -140,11 +140,18 @@ ul {
   width: 100%;
   text-align: center;
 }
-button {
-  background-color: white;
-  color: black;
-  cursor: pointer;}
 
+button {
+  width: 100px;
+  height: 30px;
+  margin-top: 3px;
+  box-sizing: border-box;
+  border: 1px solid #fe6f6f;
+  border-radius: 8px;
+  background-color: #FDC9C9;
+  color: black;
+  font-weight: bold;
+  resize: none;}
 
 
 div.container {
