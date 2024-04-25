@@ -6,7 +6,8 @@ from flask_cors import CORS
 app = Flask (__name__)
 import DBconnector
 
-CORS(app, resources={r"/api/*": {"origins": "http://34.107.19.83/"}})
+
+CORS(app, resources={r"/api/*": {"origins": ["http://34.107.19.83/" "http://3.75.158.163" , "http://3.125.183.140" , "http://35.157.117.28" ]}})
 
 @app.route('/')
 def main():
@@ -21,6 +22,12 @@ def signUp():
 @app.route('/sign-in')
 def signIn():
     return send_file("static/html/sign-in.html")
+
+@app.route('/sign-out')
+def signOut():
+    response = make_response(redirect('/'))
+    response.delete_cookie('authenticated_user')
+    return response
 
 #@app.route('/index')
 #def index():
@@ -38,7 +45,7 @@ def post(postId):
         return redirect("/sign-in", code=302)
     return send_file("static/html/post.html")
 
-@app.route('/api/signup', methods= ['POST'])
+@app.route('/api/sign-up', methods= ['POST'])
 def signup(): 
     app.logger.debug("request is:", request, "data is", request.data)
     data = str(request.data) 
@@ -53,7 +60,7 @@ def signup():
     #return redirect ("/index",conditional=True)
 
     
-@app.route('/api/signin', methods= ['POST'])
+@app.route('/api/sign-in', methods= ['POST'])
 def api_signin():
     data = str(request.data) 
     args = data.split("&") 
@@ -63,7 +70,8 @@ def api_signin():
     user = DBconnector.checkUser (username, pw)
 
     if user == None:
-        return make_response("failed")
+        resp = jsonify(failed=True)
+        return resp
 
     resp = jsonify(success=True)
     resp.set_cookie("authenticated_user", str(user[2]), 60 * 60 * 24 * 30)

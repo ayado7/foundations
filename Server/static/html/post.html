@@ -8,7 +8,7 @@
   href= "/static/styles.css"/>
 
   <meta charset="UTF-8">
-  <meta name="viewport" conent="width=device-width">
+  <meta name="viewport" content="width=device-width">
   <title>Post</title>
 </head>
   <body onload="loadStory()">
@@ -23,26 +23,18 @@
       </nav>
       </header>
 
-
-  <section id= "postBox">
-    <div class= "post">
+    <div class= "post" id="post-comment-page">
             <div id="story-content" class="story">sorry, this post has been deleted</div>
             <button type="button" onclick="deletePost()">Delete post</button>
+            </div>
+              
       <section id="post-comments" class="postBox" onload="loadComments()">
-        
       </section>
 
       <input id="comment-content" class="comment-area" type="text" name="comment" placeholder="Write a comment">
       <button class="submit" type="submit" onclick="newComment()">Submit</button> 
+      
 
-
-
-    </div>
-  </section>
-
-  
-
-</div> 
 
 <script type="text/javascript" src = "/static/js/logic.js"></script>
 <script type="text/javascript" src = "/static/js/var.js"></script> 

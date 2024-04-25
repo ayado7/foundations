@@ -20,7 +20,7 @@ body {
 header {
     background-color: #DBC9E9;
     padding: 5px;
-    width: 100%;
+    width: auto;
     height: 50px
 }
 
@@ -33,22 +33,29 @@ section {
     flex-direction: row;
 }
 
-.textarea, .comment-area{
-  width: 100%;
+.textarea{
+  width: 90%;
   height: 100px;
-  margin-top: 10px;
-  padding: 12px 20px;
+  padding: 20px;
   text-overflow: initial;
   box-sizing: border-box;
   border: 2px solid #DBC9E9;
-  border-radius: 2px;
+  border-radius: 7px;
   background-color: #f8f8f8;
-  resize: none;
-  word-wrap: break-word;
-  word-break: break-all;
-  overflow: scroll;
-  overflow-x: hidden;
-  overflow-y: visible;
+  resize: auto;
+}
+
+.comment-area{
+  width: 30%;
+  height: 100px;
+  padding: 20px;
+  text-overflow: initial;
+  box-sizing: border-box;
+  border: 2px solid #DBC9E9;
+  border-radius: 7px;
+  background-color: #f8f8f8;
+  resize: auto;
+  margin: 20px;
 }
 
 .submit {
@@ -63,15 +70,19 @@ section {
   font-weight: bold;
   resize: none;
 }
+
 div {
   background-color: pink;
   align-items: center;
+  width: auto;
+  padding: 5px;
 }
+
 .comment-box {
   width: 180px;
   height:50px;
   background-color: #FDC9C9;
-  text-align: center;
+  text-align: left;
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: visible;
@@ -79,12 +90,15 @@ div {
 }
 
 section#post-comments {
-  display: grid; 
-  grid-template-rows: auto;
-  justify-self: center;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the column width as needed */
+  grid-gap: 10px; /* Adjust the gap between grid items */
+  list-style-type: none;
 }
 
+#post-comment-page {
+margin: 20px;
+}
 
 .invisible {
   visibility: hidden;
@@ -176,13 +190,6 @@ li {
   margin-left: 10px;
   display: inline-block;
 
-}
-aside {
-  display: flexbox;
-  flex-direction: column;
-  float: right;
-  text-align: center;
-  width: 200px;
 }
 
 ul.settings {
