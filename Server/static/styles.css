@@ -169,15 +169,25 @@ button {
 
 
 div.container {
-  color: rgb(215, 239, 250);
+  color: rgb(0, 0, 0);
+  justify-content: space-between;
   width: 500px;
-  place-self: center;
-  height: auto;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   flex-direction: column;
   display: flex;
   margin: auto;
-  background-color: blueviolet;
+  padding: 20px;
+  border: 2px solid #a250e1 ;
+  background-color: #DBC9E9;
 }
+
+span {
+  height: 20px;
+}
+
 
 li:hover{
   text-decoration: underline;
