@@ -15,7 +15,7 @@ function register()
    //Put it in the Database
       let xhr = new XMLHttpRequest();
       xhr.responseType = "json";
-      xhr.open("POST", "http://127.0.0.1:5000/api/sign-up");
+      xhr.open("POST", "/api/sign-up");
       // define what to do when the response comes back
       xhr.onload = function () {
       // redirect user to the main page
@@ -39,7 +39,7 @@ function authenticate()
    var password = document.getElementById ("password").value;
    // Take user input to the server
    let xhr = new XMLHttpRequest();
-   xhr.open("POST", "http://127.0.0.1:5000/api/sign-in");
+   xhr.open("POST", "/api/sign-in");
    xhr.onload = function () {
       var response = JSON.parse(xhr.response)
       if (response.success){
@@ -65,7 +65,7 @@ function loadMain () {
  // get all posts from the database
    let xhr = new XMLHttpRequest();
    xhr.responseType = "json";
-   xhr.open("GET", "http://127.0.0.1:5000/api/posts");
+   xhr.open("GET", "/api/posts");
    // define what to do when the response comes back
    xhr.onerror = function (error) {
       console.log("ERROR! ", error)
@@ -89,7 +89,7 @@ function loadStory() {
    console.log(post_id)
    let xhr = new XMLHttpRequest();
    xhr.responseType = "json";
-   xhr.open("GET", "http://127.0.0.1:5000/api/post/" + post_id);
+   xhr.open("GET", "/api/post/" + post_id);
    // define what to do when the response comes back
    xhr.onerror = function (error) {
       console.log("ERROR! ", error)
@@ -114,7 +114,7 @@ function loadComments() {
    console.log(post_id)
    let xhr = new XMLHttpRequest();
    xhr.responseType = "json";
-   xhr.open("GET", "http://127.0.0.1:5000/api/comments/" + post_id);
+   xhr.open("GET", "/api/comments/" + post_id);
    // define what to do when the response comes back
    xhr.onerror = function (error) {
       console.log("ERROR! ", error)
@@ -142,7 +142,7 @@ function loadComments() {
 function loadProfile() {
    let xhr = new XMLHttpRequest();
    xhr.responseType = "json";
-   xhr.open("GET", "http://127.0.0.1:5000/api/profile");
+   xhr.open("GET", "/api/profile");
    // define what to do when the response comes back
    xhr.onerror = function (error) {
       console.log("ERROR! ", error)
@@ -168,7 +168,7 @@ function newPost() {
    if (payLoad != 0) {
       let xhr = new XMLHttpRequest();
       xhr.responseType = "json";
-      xhr.open("POST", "http://127.0.0.1:5000/api/post/create");
+      xhr.open("POST", "/api/post/create");
       // define what to do when the response comes back
       xhr.onerror = function (error) {
          console.log("ERROR! ", error)
@@ -190,7 +190,7 @@ function deletePost() {
    let post_id = url[url.length - 1]
    let xhr = new XMLHttpRequest();
    xhr.responseType = "json";
-   xhr.open("DELETE", "http://127.0.0.1:5000/api/post/delete/" + post_id);
+   xhr.open("DELETE", "/api/post/delete/" + post_id);
    // define what to do when the response comes back
    xhr.onerror = function (error) {
       console.log("ERROR! ", error)
@@ -212,7 +212,7 @@ function newComment() {
    if (payLoad != 0) {
       let xhr = new XMLHttpRequest();
       xhr.responseType = "json";
-      xhr.open("POST", "http://127.0.0.1:5000/api/comments/create/" + post_id);
+      xhr.open("POST", "/api/comments/create/" + post_id);
       // define what to do when the response comes back
       xhr.onerror = function (error) {
          console.log("ERROR! ", error)
