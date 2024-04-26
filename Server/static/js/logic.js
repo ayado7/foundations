@@ -52,30 +52,6 @@ function authenticate()
       // send the request, and when it comes back, run the code above.
       xhr.send("userName="+userName+"&password="+password);
 
-  /* This function isn't used anymore for security of user information
-  for (let i=0; i< allUsers.length; i++)
-   {
-   var outcome = " ";
-   
-   //Find a safer way than sending all info over the inetersnet! 
-      if (userName==allUsers[i].userName && password==allUsers[i].password)
-      { 
-         document.getElementById ("sign-in");
-         console.log (userName+ "is here!");
-         window.user = allUsers[i];
-         //Allow user in! (only if the feilds are filled correctly)
-         outcome += window.location.href = "\index.html"
-         break
-      } else
-      { 
-         outcome += alert("Wrong password, please try again");
-         console.log ("wrong password");
-         window.location.reload ();
-         break
-      }
-   }
-   return outcome;
-*/
 } 
 
 function all_posts() {
@@ -162,7 +138,7 @@ function loadComments() {
    xhr.send();
 }
 
-//This function loads the comments of a post
+//This function loads the posts of a user
 function loadProfile() {
    let xhr = new XMLHttpRequest();
    xhr.responseType = "json";
@@ -280,19 +256,6 @@ function createNewPost (postId, input) {
    post.appendChild(comment);
    return post;
 }
-
-//This function should handle the like button click event, it should toggle between like and unlike count according to the number of clicks
-/*function LikeToggle(likeButton){
-   var likeCounter = likeButton.textContent;
-   var currentCount = parseInt(likeCounter.textContent);
-   //for unliking remove one
-   if (likeButton.contains ('liked'));
-   likeCounter.textContent = currentCount -1; 
-   //for liking add one
-   else likeButton.classList.add ('liked');
-   likeCounter.textContent = currentCount +1; 
-
-}*/
 
 
 //This function renders a new post on the HTML when the user submits a story
